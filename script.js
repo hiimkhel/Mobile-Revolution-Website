@@ -41,3 +41,21 @@
     window.timeline = timeline;
     timeline();
 })();
+
+const menu = document.querySelector("header");
+window.addEventListener("scroll", ()=>{
+    if(window.scrollY >= 1){
+        menu.classList.add('sticky');
+        }
+    else{
+        menu.classList.remove('sticky');
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger-menu");
+    const navs = document.querySelector(".header-navs");
+        
+    hamburger.addEventListener("click", () => {
+        navs.classList.toggle("active");
+    });    
+});
