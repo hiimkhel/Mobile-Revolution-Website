@@ -1,59 +1,126 @@
 *{
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body{
-    font-family: 'Tomorrow', sans-serif; 
-    background-color: #f4f4f4;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 14px;
+    
 }
-.header{
-    margin: 15px;
+header.sticky .header-title{
+    font-size: 22px;
+}
+header.sticky .header-navs a{
+    font-size: 16px;
+    padding: 15px;
+}
+header.sticky{
+    position: fixed;
+    top: 2%;
+    left: 50%;
+    z-index: 10;
+    gap: 50px;
+    transform: translateX(-50%);
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(
+        120deg,
+        rgba(10, 10, 10, 0.3),
+        rgba(0, 0, 0, 0.7)
+        
+    );
+    border-radius: 20px;
+    padding-right: 10px;
+    padding-left: 50px;
+    backdrop-filter: blur(20px);  
+    width: 75%;
+    transition: padding 0.9s, background-color 0.9s, transform 0.9s;
+}
+header{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    z-index: 10;
+    transform: translateY(-3%) translateX(-50%);
+    width: 85%;
+    padding-right: 10px;
+    padding-left: 50px;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    gap: 150px;
+    justify-content: space-between;
+    transition: .8s;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(
+        120deg,
+        rgba(10, 10, 10, 0.3),
+        rgba(0, 0, 0, 0.2)
+    );
+    border-radius: 20px;
+    
 }
-.header h2{
-    padding: 5px;
-    font-size: 38px;
-    font-family: "Monoton";
+
+.header-title{
+    color: white;
     font-weight: 500;
-    margin-left: 10px;
-}
-.header ul{
-    height: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    font-family: "Anton";
-    font-weight: 200;
-    margin-right: 10px;
+    font-size: 24px;
     text-decoration: none;
+    font-family: "";
 }
-.header ul li{
-    display: inline-block;
-    margin-top: 18px;
+.header-navs{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 100;
 }
-.header ul li a:hover{
-    background: #000;
+.header-navs a{
     color: #fff;
-}
-.header ul li a{
     text-decoration: none;
     font-size: 18px;
-    padding: 15px;
-    padding-bottom: 8px;
-    color:#000;
+    padding: 20px;
 }
-.active-nav{
-    border-bottom: 2px solid #000;
+.header-navs a:hover{
+    color: #fff;
+    background-color: rgba(119, 107, 107, 0.5)
 }
-/*Landing Page Styles*/
+/*Hamburger Menu Styles*/
 
+.hamburger-menu{
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .header-navs {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .header-navs.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
 .landing-page{
-    z-index: 1;
     background: linear-gradient(-45deg, #202022,#242f49, #384358, #b69a91, #4b4852);
+    height: 90vh;
     background-size: 400% 400%;
     width: 100%;
-    height: 100vh;
+    z-index: 1;
     animation: animate 8s ease infinite;
     display: flex;
     justify-content: center;
@@ -61,21 +128,33 @@ body{
     flex-direction: row;
     gap: 30px;
 }
+
 .landing-page-container{
-    position: relative;
     width: 600px;
-    height: 250px;
+    height: 350px;
     margin-top: 150px;
     margin-right: 50px;
-    padding: 20px;
+    padding: 24px;
+    background-color: transparent;
+    backdrop-filter: blur(px);
+    background-image: linear-gradient(
+        120deg,
+        rgba(10, 10, 10, 0.3),
+        rgba(0, 0, 0, 0.2)
+    );
+    border-radius: 20px;
+    border: 2px solid black;
+
 }
 .landing-page-container-title{
     font-size: 45px;
     font-family: "Oswald";
     margin-bottom: 10px;
+    color: #ffffffd0;
 }
 .landing-page-container-desc{
     font-family: "Oswald";
+    color: #ffffffd0;
     margin-left: 10px;
     font-size: 22px;
 }
@@ -89,23 +168,34 @@ body{
     padding: 15px 30px;
     font-size: 18px;
     text-align: center;
-    background-color: #ffa586;
-    color: black;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-image: linear-gradient(
+        120deg,
+        #ffa586,
+        #815343
+    );
+    border-radius: 20px;
+    color: #ffffffd0;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     font-weight: 500;
 }
 .cta-btn:hover{
-    background-color: #561A26;
+    color:#ffffff70;
 }
 .landing-page-img{
-    width: 100%;
-    max-width: 350px;
-    margin-top: 183px;
-    height: auto;
-    object-fit: contain;
-    border-top-left-radius: 100px;
+    max-width: 400px;
+    animation: animateImg 5s linear infinite;
+}
+@keyframes animateImg{
+    0%, 100%{
+        transform: translateY(50px);
+    }
+    50%{
+        transform: translateY(100px);
+    }
 }
 @keyframes animate{
     0%{
@@ -118,22 +208,84 @@ body{
         background-position: 0 50%;
     }
 }
-/*Quotes Styles*/
-.quote-section{
-    width: 100%;
-    height: 30vh;
-    background-color: #ccc1c3;
-    font-family:"Cedarville Cursive";
-    display:flex;
+/*Divider Styles*/
+.logos{
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    background-color: #0f0f0fcb;
+
+}
+.logos-slide img{
+    height: 80px;
+    margin: 14px 20px;
+}
+.logos-slide{
+    display: inline-block;
+    animation: 5s slide infinite linear;
+}
+.logos:hover .logos-slide{
+    animation-play-state: paused;
+}
+.logos::before,
+.logos::after{
+    position: absolute;
+    top: 190%;
+    width: 250px;
+    height: 130px;
+    content: "";
+    z-index: 2;
+}
+.logos::before{
+    left: 0;
+    background: linear-gradient(to left, rgba(78, 60, 60, 0), rgba(255, 255, 255, 0.219))
+}
+.logos::after{
+    right: 0;
+    background: linear-gradient(to right, rgba(78, 60, 60, 0), rgba(255, 255, 255, 0.219))
+}
+@keyframes slide{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform:  translateX(-100%);
+    }
+}
+.welcome-section{
+    background: #1e1e1e;
+    height: 100vh;
+    background-size: 400% 400%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: 40px;
+    padding: 50px 5%;
 }
-.quote-content{
-    font-size: 28px;
+/*Timeline Styles*/
+.read-more-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+    border: 1px solid #000;
+    padding: 5px 10px 5px 10px ;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #000
 }
-.quote-author{
-    font-size: 22px;
+.read-more-btn:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #4b4852;
+}
+.read-more-img{
+    max-width: 25px;
+}
+.read-more-text{
+    font-size: 14px;
+    font-weight: bolder;
+    align-self: center;
 }
 
 .timeline{
@@ -157,15 +309,15 @@ body{
 }
 .timeline-content-title{
     font-family: "Roboto Mono", monospace;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 28px;
     margin: -35px 0 15px 0;
-    color: #fff; 
+    color: rgba(32, 31, 31, 0.918); 
 }
 .timeline-content-desc{
     margin: 0;
     font-size: 18px;
-    color: #000;
+    color: rgba(32, 31, 31, 0.918);
     font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
     line-height: 25px;
 }
@@ -176,7 +328,7 @@ body{
     height: 100%;
     margin-left: -1px;
     content: "";
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 @media only screen and (max-width : 767px){
@@ -188,7 +340,7 @@ body{
     padding: 40px 0;
     opacity: 0.3;
     filter: blur(2px);
-    transition: 0.5s;
+    transition: 1s;
     width: calc(50% - 40px);
     display: flex;
     position: relative;
@@ -267,7 +419,7 @@ body{
 .timeline-img{
     max-width: 100%;
     max-height: 100%;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.8);
 
 }
 .timeline-container{
@@ -301,12 +453,13 @@ body{
     position: relative;
 }
 .timeline-header-title{
-    color: rgb(255, 255, 255);
+    color: rgba(32, 31, 31, 0.918);
     font-size: 36px;
     letter-spacing: 5px;
-    margin: 10px 0 0 0;
+    margin: 45px 0 0 0;
     font-weight: normal;
 }
+
 /*Footer Styles*/
 .footer-container{
     padding: 20px;
